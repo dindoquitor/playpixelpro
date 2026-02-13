@@ -1,4 +1,4 @@
-baseURL = "http://localhost:1313/"
+baseURL = "https://playpixelpro.com/"
 languageCode = "en-us"
 title = "PlayPixelPro"
 theme = "PaperMod"
