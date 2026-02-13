@@ -1,0 +1,17 @@
+# ❌ Ignore everything
+*
+
+# ✅ Allow these folders
+!content/
+!static/
+!themes/
+
+# ✅ Allow PaperMod inside themes
+!themes/PaperMod/
+!themes/PaperMod/**
+
+# ✅ Allow config
+!hugo.toml
+
+# ✅ Allow gitignore itself
+!.gitignore
