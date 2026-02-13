@@ -1,4 +1,36 @@
-baseURL = 'http://localhost:1313/'
-languageCode = 'en-us'
-title = 'Playpixelpro'
-    
+baseURL = "http://localhost:1313/"
+languageCode = "en-us"
+title = "PlayPixelPro"
+theme = "PaperMod"
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  defaultTheme = "dark"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+
+[menu]
+
+  [[menu.main]]
+  identifier = "home"
+  name = "Home"
+  url = "/"
+  weight = 1
+
+  [[menu.main]]
+  identifier = "posts"
+  name = "Blog"
+  url = "/posts/"
+  weight = 2
+
+  [[menu.main]]
+  identifier = "about"
+  name = "About"
+  url = "/about/"
+  weight = 3

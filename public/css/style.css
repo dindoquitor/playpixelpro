@@ -1,37 +1,12 @@
-body {
-    background: #0f172a;
-    color: #e5e7eb;
-    font-family: Arial, sans-serif;
-}
-
-a {
-    color: #38bdf8;
-}
-a:hover {
-    color: #0ea5e9;
-}
-header {
-    background: #1e293b;
-    padding: 20px;
-    text-align: center;
-}
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-}
-nav a:hover {
-    color: #0ea5e9;
-}
-main {
-    padding: 20px;
-}
-footer {
-    background: #1e293b;
-    padding: 10px;
-    text-align: center;
-    font-size: 14px;
-}
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  background: #ffffff;
+  color: #000000;
+  font-family: Arial, sans-serif;
+  margin: 0;
 }
