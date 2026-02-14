@@ -14,6 +14,12 @@ theme = "PaperMod"
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
   ShowToc = true
+  author = "Playpixelpro"
+  hideFooter = true
+  
+[params.verification]
+  bing = "A1DBC3E64B374AF715D068482FEF097A"
+
 
 [menu]
 
