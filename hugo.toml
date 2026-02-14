@@ -16,7 +16,9 @@ theme = "PaperMod"
   ShowToc = true
   author = "Playpixelpro"
   hideFooter = true
-  
+  enableRobotsTXT = true
+
+
 [params.verification]
   bing = "A1DBC3E64B374AF715D068482FEF097A"
 
@@ -40,3 +42,4 @@ theme = "PaperMod"
   name = "About"
   url = "/about/"
   weight = 3
+
