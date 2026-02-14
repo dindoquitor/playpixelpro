@@ -46,3 +46,28 @@ enableRobotsTXT = true
   name = "About"
   url = "/about/"
   weight = 3
+
+
+[[params.socialIcons]]
+name = "youtube"
+url = "https://youtube.com/@playpixelpro"
+
+[[params.socialIcons]]
+name = "twitch"
+url = "https://twitch.tv/playpixelpro"
+
+[[params.socialIcons]]
+name = "discord"
+url = "https://discord.gg/playpixelpro"
+
+[[params.socialIcons]]
+name = "facebook"
+url = "https://facebook.com/playpixelpro"
+
+[[params.socialIcons]]
+name = "tiktok"
+url = "https://tiktok.com/@playpixelpro"
+
+[[params.socialIcons]]
+name = "kick"
+url = "https://kick.com/playpixelpro"
