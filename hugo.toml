@@ -1,7 +1,6 @@
 baseURL = "https://playpixelpro.com/"
 languageCode = "en-us"
 title = "PlayPixelPro"
-theme = "PaperMod"
 enableRobotsTXT = true
 
 [pagination]
@@ -9,6 +8,7 @@ enableRobotsTXT = true
 
 [params]
   defaultTheme = "dark"
+  env = "production"
   ShowReadingTime = true
   ShowShareButtons = true
   ShowPostNavLinks = true
@@ -16,37 +16,14 @@ enableRobotsTXT = true
   ShowCodeCopyButtons = true
   ShowToc = true
   author = "Playpixelpro"
-  hideFooter = true
-  env = "production"
-
-[params.verification]
-  bing = "A1DBC3E64B374AF715D068482FEF097A"
 
 [params.label]
   text = "PlayPixelPro"
   icon = "/images/logo.png"
   iconHeight = 35
 
-[menu]
-
-  [[menu.main]]
-  identifier = "home"
-  name = "Home"
-  url = "/"
-  weight = 1
-
-  [[menu.main]]
-  identifier = "posts"
-  name = "Blog"
-  url = "/posts/"
-  weight = 2
-
-  [[menu.main]]
-  identifier = "about"
-  name = "About"
-  url = "/about/"
-  weight = 3
-
+[params.verification]
+  bing = "A1DBC3E64B374AF715D068482FEF097A"
 
 [[params.socialIcons]]
 name = "youtube"
@@ -67,7 +44,3 @@ url = "https://facebook.com/playpixelpro"
 [[params.socialIcons]]
 name = "tiktok"
 url = "https://tiktok.com/@playpixelpro"
-
-[[params.socialIcons]]
-name = "kick"
-url = "https://kick.com/playpixelpro"
