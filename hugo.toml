@@ -22,6 +22,10 @@ enableRobotsTXT = true
 [params.verification]
   bing = "A1DBC3E64B374AF715D068482FEF097A"
 
+[params.label]
+  text = "PlayPixelPro"
+  icon = "/images/logo.png"
+  iconHeight = 35
 
 [menu]
 
@@ -42,4 +46,3 @@ enableRobotsTXT = true
   name = "About"
   url = "/about/"
   weight = 3
-
