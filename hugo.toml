@@ -2,6 +2,7 @@ baseURL = "https://playpixelpro.com/"
 languageCode = "en-us"
 title = "PlayPixelPro"
 theme = "PaperMod"
+enableRobotsTXT = true
 
 [pagination]
   pagerSize = 10
@@ -16,9 +17,7 @@ theme = "PaperMod"
   ShowToc = true
   author = "Playpixelpro"
   hideFooter = true
-  enableRobotsTXT = true
   env = "production"
-  googleTagManager = "GTM-K23F5CRF"
 
 [params.verification]
   bing = "A1DBC3E64B374AF715D068482FEF097A"
