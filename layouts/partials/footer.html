@@ -1,7 +1,22 @@
 <footer class="footer">
-  <span>© {{ now.Year }} PlayPixelPro</span>
+  <div class="footer__inner">
+    {{ if $.Site.Copyright }}
+      <div class="copyright copyright--user">
+        <span>{{ $.Site.Copyright | safeHTML }}</span>
+    {{ else }}
+      <div class="copyright">
+        <span>© {{ now.Year }} by <a href="/">Playpixelpro</a></span>
+    {{ end }}
+      </div>
+  </div>
 </footer>
-<noscript>
-  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K23F5CRF"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
+
+{{ $menu := resources.Get "js/menu.js" | js.Build }}
+{{ $cp := resources.Get "js/code.js" | js.Build }}
+
+{{ $bundle := slice $menu $cp | resources.Concat "bundle.js" | resources.Minify }}
+
+<script type="text/javascript" src="{{ $bundle.RelPermalink }}"></script>
+
+<!-- Extended footer section-->
+{{ partial "extended_footer.html" . }}

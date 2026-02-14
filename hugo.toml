@@ -1,46 +1,41 @@
 baseURL = "https://playpixelpro.com/"
 languageCode = "en-us"
 title = "PlayPixelPro"
+theme = "terminal"
 enableRobotsTXT = true
 
 [pagination]
   pagerSize = 10
 
 [params]
-  defaultTheme = "dark"
-  env = "production"
-  ShowReadingTime = true
-  ShowShareButtons = true
-  ShowPostNavLinks = true
-  ShowBreadCrumbs = true
-  ShowCodeCopyButtons = true
-  ShowToc = true
-  author = "Playpixelpro"
+  contentTypeName = "posts"
+  themeColor = "blue"
+  showMenuItems = 4
+  fullWidthTheme = false
+  centerTheme = true
+  favicon = "/favicon.ico"
 
-[params.label]
-  text = "PlayPixelPro"
-  icon = "/images/logo.png"
-  iconHeight = 35
+[languages]
+  [languages.en.params.logo]
+    logoText = "PlayPixelPro"
+    logoHomeLink = "/"
 
-[params.verification]
-  bing = "A1DBC3E64B374AF715D068482FEF097A"
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
 
-[[params.socialIcons]]
-name = "youtube"
-url = "https://youtube.com/@playpixelpro"
+[[menu.main]]
+name = "Blog"
+url = "/posts"
+weight = 2
 
-[[params.socialIcons]]
-name = "twitch"
-url = "https://twitch.tv/playpixelpro"
+[[menu.main]]
+name = "Now Playing"
+url = "/now-playing"
+weight = 3
 
-[[params.socialIcons]]
-name = "discord"
-url = "https://discord.gg/playpixelpro"
-
-[[params.socialIcons]]
-name = "facebook"
-url = "https://facebook.com/playpixelpro"
-
-[[params.socialIcons]]
-name = "tiktok"
-url = "https://tiktok.com/@playpixelpro"
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 4
