@@ -11,14 +11,7 @@ Your hub for:
 - Car builds & tuning
 - Gaming news
 - Live stream updates
-
----
-
-## 🕹️ Featured
-
-Check out the latest deep dive:
-
-➡ **The Future of Need for Speed**
+- and More
 
 ---
 
@@ -27,3 +20,4 @@ Check out the latest deep dive:
 - NFS Franchise Evolution
 - Customization Builds
 - Open-world racing games
+- Latest news for new games

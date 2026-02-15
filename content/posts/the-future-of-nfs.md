@@ -128,3 +128,15 @@ The racing genre is more crowded than ever. To stand out, *Need for Speed* has t
 If EA gets the formula right, this could be the entry that brings longtime fans back while welcoming new players into the scene.
 
 And honestly, that’s something worth waiting for.
+
+{{< game-card
+game="Need for Speed Heat"
+dev="Ghost Games"
+date="Nov 8, 2019"
+platform="pc"
+rating="8.5"
+size="2.3 MB"
+download="/downloads/nfs-heat-save/"
+>}}
+
+{{< watch-live >}}

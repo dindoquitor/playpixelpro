@@ -14,6 +14,8 @@ enableRobotsTXT = true
   fullWidthTheme = false
   centerTheme = true
   favicon = "/favicon.ico"
+  ReadMore = "Continue Reading"
+  customCSS = ["css/custom.css"]
 
 [languages]
   [languages.en.params.logo]
@@ -31,11 +33,35 @@ url = "/posts"
 weight = 2
 
 [[menu.main]]
-name = "Now Playing"
-url = "/now-playing"
+name = "Games"
+url = "/games"
 weight = 3
 
 [[menu.main]]
 name = "About"
 url = "/about"
 weight = 4
+
+[params.social]
+username = "playpixelpro"
+
+tiktok   = "https://www.tiktok.com/@playpixelpro"
+kick     = "https://kick.com/playpixelpro"
+twitch   = "https://twitch.tv/playpixelpro"
+youtube  = "https://youtube.com/@playpixelpro"
+facebook = "https://facebook.com/playpixelpro"
+
+live = true
+live_platforms = ["twitch", "youtube", "tiktok", "kick"]
+last_platforms = ["Twitch", "YouTube", "TikTok", "Kick"]
+
+# optional future API data
+[tiktok]
+followers = ""
+
+[twitch]
+followers = ""
+
+[youtube]
+followers = ""
+

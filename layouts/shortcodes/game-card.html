@@ -1,0 +1,82 @@
+{{/* ---------------- RATING LOGIC ---------------- */}}
+
+{{ $rating := .Get "rating" | default "" }}
+{{ $score := 0 }}
+
+{{ if $rating }}
+  {{ $score = int $rating }}
+{{ end }}
+
+{{ $color := "" }}
+{{ if ge $score 9 }}
+  {{ $color = "rating-high" }}
+{{ else if ge $score 7 }}
+  {{ $color = "rating-mid" }}
+{{ else if gt $score 0 }}
+  {{ $color = "rating-low" }}
+{{ end }}
+
+
+{{/* ---------------- PLATFORM LOGIC ---------------- */}}
+
+{{ $platformRaw := .Get "platform" | default "" }}
+{{ $platform := lower $platformRaw }}
+
+{{ $btnText := "⬇ Download" }}
+{{ if $platformRaw }}
+  {{ $btnText = printf "⬇ Download for %s" $platformRaw }}
+{{ end }}
+
+{{ $btnClass := "download-btn" }}
+
+{{ if in $platform "pc" }}
+  {{ $btnClass = printf "%s btn-pc" $btnClass }}
+{{ else if or (in $platform "ps") (in $platform "playstation") }}
+  {{ $btnClass = printf "%s btn-ps" $btnClass }}
+{{ else if in $platform "xbox" }}
+  {{ $btnClass = printf "%s btn-xbox" $btnClass }}
+{{ else if in $platform "/" }}
+  {{ $btnClass = printf "%s btn-multi" $btnClass }}
+{{ end }}
+
+
+<div class="game-card">
+
+<strong>🎮 Game:</strong> {{ .Get "game" }}<br>
+
+{{ with .Get "dev" }}
+<strong>🧑‍💻 Developer:</strong> {{ . }}<br>
+{{ end }}
+
+{{ with .Get "date" }}
+<strong>🗓 Release:</strong> {{ . }}<br>
+{{ end }}
+
+{{ with $platformRaw }}
+<strong>🏷 Platform:</strong> {{ . }}<br>
+{{ end }}
+
+{{ if $rating }}
+<strong>⭐ My Rating:</strong>
+<span class="{{ $color }}">{{ $rating }}/10</span>
+{{ end }}
+
+{{ with .Get "size" }}
+<br><strong>💾 File Size:</strong> {{ . }}
+{{ end }}
+
+{{ if or (.Get "review") (.Get "download") }}
+<br><br>
+{{ end }}
+
+{{ with .Get "review" }}
+<a href="{{ . }}" class="button">▶ Read Review</a>
+{{ end }}
+
+{{ with .Get "download" }}
+<a href="{{ . }}" class="button {{ $btnClass }}" target="_blank" rel="noopener">
+  {{ $btnText }}
+</a>
+{{ end }}
+
+</div>

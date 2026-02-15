@@ -1,0 +1,191 @@
+.game-card {
+  border: 2px dashed #ffe066;
+  padding: 18px;
+  margin: 25px 0;
+  background: rgba(0,0,0,0.25);
+}
+
+.game-card:hover {
+  box-shadow: 0 0 12px #ffe066;
+}
+
+.game-card .button {
+  margin-right: 10px;
+}
+
+/* rating colors */
+
+.rating-high {
+  color: #00ff9c;
+  font-weight: bold;
+  text-shadow: 0 0 6px #00ff9c;
+}
+
+.rating-mid {
+  color: #ffe066;
+  font-weight: bold;
+  text-shadow: 0 0 6px #ffe066;
+}
+
+.rating-low {
+  color: #ff5f5f;
+  font-weight: bold;
+  text-shadow: 0 0 6px #ff5f5f;
+}
+
+.download-btn{
+  border: 2px dashed #ffe066;
+}
+
+.download-btn:hover {
+  box-shadow: 0 0 12px #ffe066;
+}
+
+/* Platform button colors */
+
+.btn-pc {
+  background: #e0a90f;
+  color: #000;
+  box-shadow: 0 0 8px #c79c10;
+}
+
+.btn-ps {
+  background: #0a84ff;
+  color: #fff;
+  box-shadow: 0 0 8px #0a84ff;
+}
+
+.btn-xbox {
+  background: #107c10;
+  color: #fff;
+  box-shadow: 0 0 8px #107c10;
+}
+
+.btn-multi {
+  background: #b026ff;
+  color: #fff;
+  box-shadow: 0 0 8px #b026ff;
+}
+
+.download-countdown {
+  font-family: monospace;
+  font-size: 1.2rem;
+  color: #00ff9c;
+}
+
+.download-countdown .count {
+  color: #ffe066;
+  text-shadow: 0 0 8px #ffe066;
+  font-weight: bold;
+}
+
+.download-guide {
+  border-left: 2px solid #00ff9c;
+  padding-left: 15px;
+  margin-top: 15px;
+}
+
+.p-dwn {
+  margin: 1px;
+  padding: 1px;
+}
+
+.copyright {
+  color: var(--accent);
+}
+
+.footer {
+   padding: 0 !important;
+}
+
+.watch-live-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+}
+
+.watch-live-buttons a {
+  border: 1px solid var(--accent);
+  padding: 0.35rem 0.75rem;
+  text-decoration: none;
+}
+
+.watch-live-buttons a:hover {
+  background: var(--accent);
+  color: var(--background);
+}
+
+.now-live, {
+  border: 1px solid #ff4d4d;
+  padding: 0.2rem 0.6rem;
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.now-live-indicator {
+  color: #ff4d4d;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.last-live-indicator {
+  opacity: 0.7;
+  margin-left: 0.5rem;
+}
+
+.watch-live-buttons a.active {
+  border-color: #ff4d4d;
+  color: #ff4d4d;
+}
+
+.watch-live-buttons a.active::before {
+  content: "LIVE ";
+}
+
+
+.container {
+  max-width: 1200px !important;
+}
+
+.live-box {
+  margin: 25px 0;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.live-text a {
+  color: #00ff9c;
+  text-decoration: none;
+}
+
+.live-text a:hover {
+  text-shadow: 0 0 6px #00ff9c;
+}
+
+/* blinking live dot */
+
+.live-dot {
+  height: 10px;
+  width: 10px;
+  background: #ff4d4d;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+  box-shadow: 0 0 8px #ff4d4d;
+  animation: liveBlink 1s infinite;
+}
+
+@keyframes liveBlink {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+/* offline style */
+
+.last-live-box {
+  margin: 25px 0;
+  font-family: monospace;
+  opacity: 0.7;
+}

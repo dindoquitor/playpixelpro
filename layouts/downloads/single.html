@@ -1,0 +1,86 @@
+{{ define "main" }}
+
+<h1>{{ .Title }}</h1>
+
+<p id="countdown" class="download-countdown">
+[ initializing download sequence... ]
+</p>
+
+<script>
+  let seconds = 30;
+  const fileUrl = "{{ .Params.file }}";
+
+  const countdownEl = document.getElementById("countdown");
+
+  const timer = setInterval(function () {
+
+    countdownEl.innerHTML =
+      "[ system ] preparing your file... <span class='count'>" +
+      seconds +
+      "</span>s";
+
+    if (seconds === 0) {
+      clearInterval(timer);
+
+      countdownEl.innerHTML = "[ system ] download started ✔";
+
+      // 🔥 GTM EVENT
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "download_started",
+        file_name: "{{ .Title }}",
+        file_url: fileUrl
+      });
+
+      // ⬇ START DOWNLOAD
+      window.location.href = fileUrl;
+    }
+
+    seconds--;
+
+  }, 1000);
+</script>
+
+
+{{ with .Params.version }}
+<p class="p-dwn"><strong>version:</strong> {{ . }}</p>
+{{ end }}
+
+{{ with .Params.size }}
+<p class="p-dwn"><strong>file size:</strong> {{ . }}</p>
+{{ end }}
+
+<hr>
+
+<h2>Installation guide</h2>
+
+<div class="download-guide">
+
+{{ if .Content }}
+
+  {{ .Content }}
+
+{{ else }}
+
+  <h3>PC Installation</h3>
+
+  <ol>
+    <li>Extract the ZIP file</li>
+    <li>Copy the contents to the correct game save folder</li>
+    <li>Launch the game</li>
+  </ol>
+
+  <p><em>Always backup your original files before replacing.</em></p>
+
+{{ end }}
+
+</div>
+
+<hr>
+
+<p>
+[ manual mode ] →
+<a href="{{ .Params.file }}">click here if download did not start</a>
+</p>
+
+{{ end }}

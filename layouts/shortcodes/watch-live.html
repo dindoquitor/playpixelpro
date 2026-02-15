@@ -1,0 +1,41 @@
+{{ $s := site.Params.social }}
+{{ $live := $s.live_platforms }}
+<hr>
+<div class="watch-live">
+
+  <h2>🎮 Watch me live</h2>
+
+  <div class="watch-live-buttons">
+
+    <a href="{{ $s.tiktok }}" target="_blank" rel="noopener"
+       class="{{ if in $live "tiktok" }}active{{ end }}">
+       🎵 TikTok
+    </a>
+
+    <a href="{{ $s.kick }}" target="_blank" rel="noopener"
+       class="{{ if in $live "kick" }}active{{ end }}">
+       🟢 Kick
+    </a>
+
+    <a href="{{ $s.twitch }}" target="_blank" rel="noopener"
+       class="{{ if in $live "twitch" }}active{{ end }}">
+       🟣 Twitch
+    </a>
+
+    <a href="{{ $s.youtube }}" target="_blank" rel="noopener"
+       class="{{ if in $live "youtube" }}active{{ end }}">
+       🔴 YouTube
+    </a>
+
+    <a href="{{ $s.facebook }}" target="_blank" rel="noopener"
+       class="{{ if in $live "facebook" }}active{{ end }}">
+       🔵 Facebook
+    </a>
+
+  </div>
+
+  <p class="watch-live-text">
+    I stream across all of these platforms with the same performance-focused setup.
+  </p>
+
+</div>
