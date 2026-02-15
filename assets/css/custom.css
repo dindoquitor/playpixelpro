@@ -1,9 +1,51 @@
 .game-card {
-  border: 2px dashed #ffe066;
-  padding: 18px;
-  margin: 25px 0;
-  background: rgba(0,0,0,0.25);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  border: 2px solid #ffe066;
+  padding: 20px;
+  margin: 30px 0;
+  background: rgba(0,0,0,0.35);
 }
+
+/* left side */
+.card-details {
+  flex: 1;
+}
+
+/* right side */
+.card-down {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* make button nice width on desktop */
+.card-down .button {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+
+  .game-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-down {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .card-down .button {
+    width: 100%;
+    text-align: center;
+  }
+
+}
+
 
 .game-card:hover {
   box-shadow: 0 0 12px #ffe066;
@@ -108,7 +150,7 @@
 .watch-live-buttons a {
   border: 1px solid var(--accent);
   padding: 0.35rem 0.75rem;
-  text-decoration: none;
+  text-decoration: none;  
 }
 
 .watch-live-buttons a:hover {
@@ -116,7 +158,7 @@
   color: var(--background);
 }
 
-.now-live, {
+.now-live{
   border: 1px solid #ff4d4d;
   padding: 0.2rem 0.6rem;
   margin-left: 0.5rem;
@@ -155,8 +197,9 @@
 }
 
 .live-text a {
-  color: #00ff9c;
+  color: var(--accent);
   text-decoration: none;
+  animation: liveBlink 2s infinite;
 }
 
 .live-text a:hover {
@@ -188,4 +231,28 @@
   margin: 25px 0;
   font-family: monospace;
   opacity: 0.7;
+}
+
+img{
+  border: 2px dashed var(--accent) !important;
+}
+
+.progress-wrap {
+  width: 100%;
+  height: 6px;
+  background: #111;
+  margin: 15px 0 25px;
+  border: 1px solid #333;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+  transition: width 1s linear;
+}
+
+.download-countdown {
+  font-family: monospace;
 }

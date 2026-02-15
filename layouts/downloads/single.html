@@ -2,45 +2,66 @@
 
 <h1>{{ .Title }}</h1>
 
-<p id="countdown" class="download-countdown">
+<p id="countdown" class="download-countdown p-dwn">
 [ initializing download sequence... ]
 </p>
 
+<div class="progress-wrap">
+  <div id="progress-bar"></div>
+</div>
+
 <script>
-  let seconds = 30;
-  const fileUrl = "{{ .Params.file }}";
+let seconds = 30;
 
-  const countdownEl = document.getElementById("countdown");
+const countdownEl = document.getElementById("countdown");
+const progressBar = document.getElementById("progress-bar");
 
-  const timer = setInterval(function () {
+const timer = setInterval(function () {
+
+  const percent = ((30 - seconds) / 30) * 100;
+  progressBar.style.width = percent + "%";
+
+  countdownEl.innerHTML =
+    "[ system ] preparing your file... <span class='count'>" +
+    seconds +
+    "</span>s";
+
+  if (seconds === 0) {
+
+    clearInterval(timer);
 
     countdownEl.innerHTML =
-      "[ system ] preparing your file... <span class='count'>" +
-      seconds +
-      "</span>s";
+      "[ system ] download started ✔<br>[ redirecting... ]";
 
-    if (seconds === 0) {
-      clearInterval(timer);
+    fetch("https://downloads.playpixelpro.com/get-link?file={{ .Params.file }}")
+      .then(res => res.json())
+      .then(data => {
 
-      countdownEl.innerHTML = "[ system ] download started ✔";
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "download_started",
+          file_name: "{{ .Title }}"
+        });
 
-      // 🔥 GTM EVENT
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "download_started",
-        file_name: "{{ .Title }}",
-        file_url: fileUrl
+        const link = document.createElement("a");
+        link.href = data.url;
+        link.download = "";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        setTimeout(() => {
+          window.location.href = "/thank-you/";
+        }, 4000);
+
       });
 
-      // ⬇ START DOWNLOAD
-      window.location.href = fileUrl;
-    }
+  }
 
-    seconds--;
+  seconds--;
 
-  }, 1000);
+}, 1000);
 </script>
-
 
 {{ with .Params.version }}
 <p class="p-dwn"><strong>version:</strong> {{ . }}</p>
@@ -52,25 +73,67 @@
 
 <hr>
 
+<h2>Game information</h2>
+
+<div class="game-info">
+
+<p class="p-dwn"><strong>Title:</strong> {{ .Params.game_title }}</p>
+<p class="p-dwn"><strong>Genre:</strong> {{ .Params.genre }}</p>
+<p class="p-dwn"><strong>Developer:</strong> {{ .Params.developer }}</p>
+<p class="p-dwn"><strong>Publisher:</strong> {{ .Params.publisher }}</p>
+<p class="p-dwn"><strong>Franchise:</strong> {{ .Params.franchise }}</p>
+<p class="p-dwn"><strong>Release date:</strong> {{ .Params.release_date }}</p>
+
+</div>
+
+<hr>
+
+<h2>Minimum system requirements</h2>
+
+<div class="requirements">
+
+<p class="p-dwn">Requires a 64-bit processor and operating system</p>
+
+<p class="p-dwn"><strong>OS:</strong> {{ .Params.requirements.os }}</p>
+<p class="p-dwn"><strong>Processor:</strong> {{ .Params.requirements.processor }}</p>
+<p class="p-dwn"><strong>Memory:</strong> {{ .Params.requirements.memory }}</p>
+<p class="p-dwn"><strong>Graphics:</strong> {{ .Params.requirements.graphics }}</p>
+<p class="p-dwn"><strong>DirectX:</strong> {{ .Params.requirements.directx }}</p>
+<p class="p-dwn"><strong>Network:</strong> {{ .Params.requirements.network }}</p>
+<p class="p-dwn"><strong>Storage:</strong> {{ .Params.requirements.storage }}</p>
+<p class="p-dwn"><strong>Sound card:</strong> {{ .Params.requirements.sound }}</p>
+<p class="p-dwn"><strong>VR support:</strong> {{ .Params.requirements.vr }}</p>
+<p class="p-dwn"><strong>Additional notes:</strong> {{ .Params.requirements.notes }}</p>
+
+</div>
+
+<hr>
+
+<h2>Description</h2>
+
+<div class="download-description">
+<p class="p-dwn">{{ .Params.description }}</p>
+</div>
+
+<hr>
+
 <h2>Installation guide</h2>
 
 <div class="download-guide">
 
 {{ if .Content }}
-
-  {{ .Content }}
-
+  <div class="p-dwn">{{ .Content }}</div>
 {{ else }}
 
-  <h3>PC Installation</h3>
+<h3>PC installation</h3>
 
-  <ol>
-    <li>Extract the ZIP file</li>
-    <li>Copy the contents to the correct game save folder</li>
-    <li>Launch the game</li>
-  </ol>
+<ol>
+<li>Extract the ZIP file</li>
+<li>Copy the contents to the correct game folder</li>
+<li>Launch the game</li>
+</ol>
 
-  <p><em>Always backup your original files before replacing.</em></p>
+<p class="p-dwn"><em>Always backup your original files before replacing.</em></p>
 
 {{ end }}
 
@@ -78,9 +141,11 @@
 
 <hr>
 
-<p>
+<p class="p-dwn">
 [ manual mode ] →
-<a href="{{ .Params.file }}">click here if download did not start</a>
+<a href="https://downloads.playpixelpro.com/{{ .Params.file }}">
+click here if download did not start
+</a>
 </p>
 
 {{ end }}

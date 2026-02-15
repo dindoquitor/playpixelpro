@@ -41,7 +41,7 @@
 
 
 <div class="game-card">
-
+<div class="card-details">
 <strong>🎮 Game:</strong> {{ .Get "game" }}<br>
 
 {{ with .Get "dev" }}
@@ -72,11 +72,12 @@
 {{ with .Get "review" }}
 <a href="{{ . }}" class="button">▶ Read Review</a>
 {{ end }}
-
+</div>
+<div class="card-down">
 {{ with .Get "download" }}
 <a href="{{ . }}" class="button {{ $btnClass }}" target="_blank" rel="noopener">
   {{ $btnText }}
 </a>
 {{ end }}
-
+</div>
 </div>
