@@ -1,0 +1,32 @@
+{{- $ctx := .context | default . -}}
+{{- $limit := .limit -}}
+
+{{- $isntDefault := not (or (eq (trim $ctx.Site.Params.contentTypeName " ") "posts") (eq (trim $ctx.Site.Params.contentTypeName " ") "")) -}}
+{{- $contentTypeName := cond $isntDefault (string $ctx.Site.Params.contentTypeName) "posts" -}}
+
+{{- $pageContext := $ctx -}}
+{{- if $ctx.IsHome -}}
+  {{- $pageContext = $ctx.Site -}}
+{{- end -}}
+
+{{- $pages := where $pageContext.RegularPages "Type" $contentTypeName -}}
+
+{{- if $limit }}
+  {{- $pages = first $limit $pages }}
+{{- end }}
+
+<div class="posts posts-grid">
+
+  {{- if not $limit }}
+    {{- $paginator := $ctx.Paginate $pages }}
+    {{- range $paginator.Pages }}
+      {{ partial "posts-grid-item.html" . }}
+    {{- end }}
+    {{ partial "pagination.html" $ctx }}
+  {{- else }}
+    {{- range $pages }}
+      {{ partial "posts-grid-item.html" . }}
+    {{- end }}
+  {{- end }}
+
+</div>

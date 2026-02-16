@@ -156,6 +156,7 @@
 .watch-live-buttons a:hover {
   background: var(--accent);
   color: var(--background);
+  
 }
 
 .now-live{
@@ -255,4 +256,117 @@ img{
 
 .download-countdown {
   font-family: monospace;
+}
+
+/* Profile Page */
+/* TERMINAL HERO BOX */
+.terminal-box {
+  border-top: 1px dashed var(--accent);
+  border-bottom: 1px dashed var(--accent);
+  padding: 40px 0;
+}
+
+/* HERO */
+.pp-header {
+  text-align: center;
+}
+
+.pp-avatar {
+  width: 90px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.pp-intro {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 25px;
+}
+
+@media (max-width: 640px) {
+  .pp-intro {
+    display: block;
+  }
+  .watch-live-buttons{
+    justify-content: center;
+    align-items: center;
+  }
+
+  .watch-live-text{
+    text-align: justify;
+  }
+  .live-box{
+    text-align: center;
+  }
+}
+
+/* BUTTON GRID */
+.pp-links {
+  max-width: 640px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .pp-links {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pp-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  text-decoration: none;
+  border: 1px dashed var(--accent);
+}
+
+.pp-btn:hover {
+  background: var(--accent);
+  color: var(--background);
+}
+
+/* .pp-btn.active {
+  box-shadow: 0 0 10px var(--accent);
+} */
+
+/* POSTS GRID LAYOUT */
+.posts-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+@media (min-width: 900px) {
+  .posts-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* FIX TERMINAL POST WIDTH INSIDE GRID */
+.posts-grid .post {
+  width: 100%;
+}
+
+
+.pp-btn-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pp-btn-img {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+}
+
+.watch-live{
+  
+    border-top: 1px dashed var(--accent);
+    border-bottom: 1px dashed var(--accent);
+    padding: 20px 0;
 }

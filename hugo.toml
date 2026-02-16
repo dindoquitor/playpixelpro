@@ -50,6 +50,9 @@ kick     = "https://kick.com/playpixelpro"
 twitch   = "https://twitch.tv/playpixelpro"
 youtube  = "https://youtube.com/@playpixelpro"
 facebook = "https://facebook.com/playpixelpro"
+support = "https://buymeacoffee.com/playpixelpro"
+steam   = "https://steamcommunity.com/id/kivernis"
+games   = "/posts"
 
 live = true
 live_platforms = ["twitch", "youtube", "tiktok", "kick"]
@@ -65,3 +68,4 @@ followers = ""
 [youtube]
 followers = ""
 
+support_image = "/images/bmc-logo.png"
