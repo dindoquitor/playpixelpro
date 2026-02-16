@@ -3,3 +3,4 @@
 /.hugo_build.lock
 layouts_custom/
 static_custom/
+worker.js

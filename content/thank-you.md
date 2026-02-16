@@ -11,3 +11,5 @@ You can:
 ← go back to the homepage  
 or  
 check another game.
+
+{{< watch-live >}}

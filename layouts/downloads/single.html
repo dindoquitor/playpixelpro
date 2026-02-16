@@ -16,6 +16,37 @@ let seconds = 30;
 const countdownEl = document.getElementById("countdown");
 const progressBar = document.getElementById("progress-bar");
 
+const fileUrl = "https://downloads.playpixelpro.com/{{ .Params.file }}";
+
+function startDownload() {
+
+  // GTM
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "download_started",
+    file_name: "{{ .Title }}"
+  });
+
+  // start download
+  const link = document.createElement("a");
+  link.href = fileUrl;
+  link.rel = "noopener";
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
+  // fallback (guaranteed)
+  setTimeout(() => {
+    window.location.href = fileUrl;
+  }, 1500);
+
+  // redirect to thank you
+  setTimeout(() => {
+    window.location.href = "/thank-you/";
+  }, 4000);
+}
+
 const timer = setInterval(function () {
 
   const percent = ((30 - seconds) / 30) * 100;
@@ -27,41 +58,22 @@ const timer = setInterval(function () {
     "</span>s";
 
   if (seconds === 0) {
-
     clearInterval(timer);
-
     countdownEl.innerHTML =
       "[ system ] download started ✔<br>[ redirecting... ]";
-
-    fetch("https://downloads.playpixelpro.com/get-link?file={{ .Params.file }}")
-      .then(res => res.json())
-      .then(data => {
-
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: "download_started",
-          file_name: "{{ .Title }}"
-        });
-
-        const link = document.createElement("a");
-        link.href = data.url;
-        link.download = "";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-        setTimeout(() => {
-          window.location.href = "/thank-you/";
-        }, 4000);
-
-      });
-
+    startDownload();
   }
 
   seconds--;
 
 }, 1000);
+
+function manualDownload() {
+  startDownload();
+}
 </script>
+
+
 
 {{ with .Params.version }}
 <p class="p-dwn"><strong>version:</strong> {{ . }}</p>
@@ -76,14 +88,12 @@ const timer = setInterval(function () {
 <h2>Game information</h2>
 
 <div class="game-info">
-
 <p class="p-dwn"><strong>Title:</strong> {{ .Params.game_title }}</p>
 <p class="p-dwn"><strong>Genre:</strong> {{ .Params.genre }}</p>
 <p class="p-dwn"><strong>Developer:</strong> {{ .Params.developer }}</p>
 <p class="p-dwn"><strong>Publisher:</strong> {{ .Params.publisher }}</p>
 <p class="p-dwn"><strong>Franchise:</strong> {{ .Params.franchise }}</p>
 <p class="p-dwn"><strong>Release date:</strong> {{ .Params.release_date }}</p>
-
 </div>
 
 <hr>
@@ -91,9 +101,7 @@ const timer = setInterval(function () {
 <h2>Minimum system requirements</h2>
 
 <div class="requirements">
-
 <p class="p-dwn">Requires a 64-bit processor and operating system</p>
-
 <p class="p-dwn"><strong>OS:</strong> {{ .Params.requirements.os }}</p>
 <p class="p-dwn"><strong>Processor:</strong> {{ .Params.requirements.processor }}</p>
 <p class="p-dwn"><strong>Memory:</strong> {{ .Params.requirements.memory }}</p>
@@ -104,7 +112,6 @@ const timer = setInterval(function () {
 <p class="p-dwn"><strong>Sound card:</strong> {{ .Params.requirements.sound }}</p>
 <p class="p-dwn"><strong>VR support:</strong> {{ .Params.requirements.vr }}</p>
 <p class="p-dwn"><strong>Additional notes:</strong> {{ .Params.requirements.notes }}</p>
-
 </div>
 
 <hr>
@@ -120,32 +127,26 @@ const timer = setInterval(function () {
 <h2>Installation guide</h2>
 
 <div class="download-guide">
-
 {{ if .Content }}
-  <div class="p-dwn">{{ .Content }}</div>
+<div class="p-dwn">{{ .Content }}</div>
 {{ else }}
-
 <h3>PC installation</h3>
-
 <ol>
 <li>Extract the ZIP file</li>
-<li>Copy the contents to the correct game folder</li>
+<li>Copy to the correct game folder</li>
 <li>Launch the game</li>
 </ol>
-
-<p class="p-dwn"><em>Always backup your original files before replacing.</em></p>
-
+<p class="p-dwn"><em>Always backup your original files.</em></p>
 {{ end }}
-
 </div>
 
 <hr>
-
+<br>
 <p class="p-dwn">
 [ manual mode ] →
-<a href="https://downloads.playpixelpro.com/{{ .Params.file }}">
-click here if download did not start
-</a>
+<a href="#" onclick="manualDownload()">click here if download did not start</a>
 </p>
+
+{{ partial "watch-live.html" . }}
 
 {{ end }}
