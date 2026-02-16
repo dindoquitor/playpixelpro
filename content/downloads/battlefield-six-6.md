@@ -1,9 +1,6 @@
 ---
 title: "Battlefield 6"
 file: "Games/battlefield-6-trial-file.zip"
-size: "103 GB"
-version: "Trial Build"
-
 game_title: "Battlefield™ 6"
 genre: "Action"
 developer: "Battlefield Studios"
